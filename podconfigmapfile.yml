@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-demo-pod
+spec:
+  containers:
+    - name: demo
+      image: alpine
+      command: ["sleep", "3600"]
+      volumeMounts:
+      - name: file-secret   #the name of the vol should be defined here
+        mountPath: "/config"
+        readOnly: true
+  volumes:
+  # You set volumes at the Pod level, then mount them into containers inside that Pod
+  - name: file-secret
+    secret:
+      # Provide the name of the ConfigMap you want to mount.
+      secretName: new-secret

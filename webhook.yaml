@@ -1,0 +1,56 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{},"labels":{"app":"istiod","app.kubernetes.io/instance":"istio-base","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"istiod","app.kubernetes.io/part-of":"istio","app.kubernetes.io/version":"1.25.2","argocd.argoproj.io/instance":"istio-base","helm.sh/chart":"base-1.25.2","istio":"istiod","istio.io/rev":"default","release":"istio-base"},"name":"istiod-default-validator"},"webhooks":[{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"istiod","namespace":"istio-system","path":"/validate"}},"failurePolicy":"Ignore","name":"validation.istio.io","rules":[{"apiGroups":["security.istio.io","networking.istio.io","telemetry.istio.io","extensions.istio.io"],"apiVersions":["*"],"operations":["CREATE","UPDATE"],"resources":["*"]}],"sideEffects":"None"}]}
+    meta.helm.sh/release-name: istio-base
+    meta.helm.sh/release-namespace: istio-system
+  creationTimestamp: "2025-04-20T16:39:03Z"
+  generation: 13
+  labels:
+    app: istiod
+    app.kubernetes.io/instance: istio-base
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: istiod
+    app.kubernetes.io/part-of: istio
+    app.kubernetes.io/version: 1.25.2
+    argocd.argoproj.io/instance: istio-base
+    helm.sh/chart: base-1.25.2
+    istio: istiod
+    istio.io/rev: default
+    release: istio-base
+  name: istiod-default-validator
+  resourceVersion: "488421"
+  uid: 05072591-f6c5-4782-b1f9-dc9cd9db1509
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvVENDQWVXZ0F3SUJBZ0lSQUoxV0NYdlF4SHRqcWltMGRRNksrajB3RFFZSktvWklodmNOQVFFTEJRQXcKR0RFV01CUUdBMVVFQ2hNTlkyeDFjM1JsY2k1c2IyTmhiREFlRncweU5UQTBNakF4TmpRd05UaGFGdzB6TlRBMApNVGd4TmpRd05UaGFNQmd4RmpBVUJnTlZCQW9URFdOc2RYTjBaWEl1Ykc5allXd3dnZ0VpTUEwR0NTcUdTSWIzCkRRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRQys2NCs1TWZwbmdGOUtQaXRHQUNQNHpvSlZEb0ZLT2VZenJuaGwKREJoZkdCcDVWa1RvYk93RUFxNHNTYXpBd3VGbk9XclBHd3J4V2RjWm52b1NWd2JEdE9KMTVQV2VSMGN4TmdKNAp3b1JWQlZwbzRoMnVEbThUN3htMUY4UzhlQUtNUTAwSTdYQ2NNbVRNSkNyRWtrc0NmcmVTZEczTEhscncxZWtRCjdTZWdaQUpFTklkVVg4TFhoSG1JdS83eEZuNkpEaUdSZ3VoRGpqU0JXU2JPN3BTRUJFbmJpRS9mUG1MemdqWEYKM1ZnUmI1RFNNMnB2V1lWdE1nVmRtTHRZdnNFK0dDd25DRnNIWmNCbW1sV1ZKbGVqS0dnelYrNHQxMHBmME5HMApsME91UTBWY1ZYQU1LOFNaZjhqOHRmS25qQjVianNCcWlXTTFrUGxrbGlDVS83NkJBZ01CQUFHalFqQkFNQTRHCkExVWREd0VCL3dRRUF3SUNCREFQQmdOVkhSTUJBZjhFQlRBREFRSC9NQjBHQTFVZERnUVdCQlJmeWhaQlNWaG4KK3RjQ1pqQUhadmpTWCtVOHJ6QU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFybWtyeFJPRzdKZFVFYitxR3VyUgpYN1A1MGZDZkdXQ0x0RGRscFlGUHpyb3pwOXlNSWljT0JoUjRsVFR1QkRQTnNab1RWcTRSeDc1blYvcFF3d3AwCnNjRnB4NDd5RzM1S1NoWjdSRjZYbkRsQ0MwaWxDSVlQekRmcllha2hiTkxKdEJKNVliVVZMZ2ZrU2I1MFM0TEYKRGhFRm0wK0Vod2tuRGw4cHU1VUtZUUF6ZGZpRGdzMmFabmljekZKbFlvUzZpWG16UDIvSmoyc0o1cmZUcktvUgpyODVRQ3l6OG4xbGgvUTlRckZZejdjTEJiK3hyeGVQL2VQM1l1cGY5dzZRSlZpRE9YV3RTeEU0Q0JVV2pkUys0CllpN1hDbUdtY1Uzdzl2K1NIeC9TbGVTZFdwUDlJSkhHMGZPaFpNaS8vL2ZlQU5QZHdYZCtnc3AxT084UHpOMlAKcHc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: istiod
+      namespace: istio-system
+      path: /validate
+      port: 443
+  failurePolicy: Ignore
+  matchPolicy: Equivalent
+  name: validation.istio.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - security.istio.io
+    - networking.istio.io
+    - telemetry.istio.io
+    - extensions.istio.io
+    apiVersions:
+    - '*'
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - '*'
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10

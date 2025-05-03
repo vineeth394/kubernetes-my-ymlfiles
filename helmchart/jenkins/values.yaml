@@ -1,0 +1,18 @@
+labels:
+  app: jenkins
+replicas: 2
+rollingupdate:
+  maxsurge: 2
+  unavailable: 0
+volume:
+  name: local-volume
+  claimname: jenkins-pvc
+  storage: 1Gi
+image:
+  registry: jenkins
+  repository: jenkins
+  tag: latest
+ports:
+  port: 8080
+  targetport: 8080
+  nodeport: 30080

@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  jenkins:
+  - apiVersion: v2
+    created: 2025-04-22T09:46:44.204273176Z
+    description: A Helm chart for Kubernetes
+    digest: f3631c7b426a49c0a302ce272783bb852f2281b72e2d06de9f4ce0baee6f2291
+    name: jenkins
+    urls:
+    - https://trialp0rpyr.jfrog.io/artifactory/jenkins-helm-local/jenkins-0.1.0.tgz
+    type: application
+    appVersion: "1.16.0"
+    version: "0.1.0"
+generated: 2025-04-22T09:46:44.222061530Z

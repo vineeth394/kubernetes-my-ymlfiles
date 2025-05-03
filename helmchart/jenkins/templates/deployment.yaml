@@ -1,0 +1,34 @@
+apiVersion: apps/v1                               # API version for Deployment resources
+kind: Deployment                                   # Resource type: Deployment
+metadata:
+  name: {{ .Release.Name }}-deploy                 # Name of the deployment
+  labels:
+    app: {{ .Values.labels.app }}                   # Label applied to the deployment itself
+spec:
+  replicas: {{ .Values.replicas }}                    # Number of pod replicas to maintain
+  strategy:
+    type: RollingUpdate                                # Update strategy: gradually replace pods
+    rollingUpdate:
+      maxSurge: {{ .Values.rollingupdate.maxsurge }}                  # Max number of pods that can exceed the replica count during update
+      maxUnavailable: {{ .Values.rollingupdate.unavailable }}                # Max number of pods that can be unavailable during update
+  selector:
+    matchLabels:
+      app: {{ .Values.labels.app }}                 # Selects which pods are managed by this deployment
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.labels.app }}               # Labels applied to the pods created by this template
+    spec:
+      volumes:
+        - name: {{ .Values.volume.name }}           # Name of the volume, referenced by volumeMounts
+          persistentVolumeClaim:
+            claimName: {{ .Values.volume.claimname }}     # Name of the PVC to use for this volume
+      containers:
+        - name: {{ .Release.Name }}                # Container name
+          image: {{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }} # Container image to use
+          volumeMounts:
+            - name: {{ .Values.volume.name }}       # Name of the volume to mount (must match volume name above)
+              mountPath: /var/jenkins_home         # Where to mount the volume in the container
+      securityContext:
+        runAsUser: 0
+        fsGroup: 0        

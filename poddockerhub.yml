@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: private-reg-pod
+spec:
+  containers:
+    - name: private-container
+      image: vineeth394/my_ubuntu_images:latest
+  imagePullSecrets:
+    - name: regcred
